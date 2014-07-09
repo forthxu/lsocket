@@ -234,7 +234,7 @@ local function read_request(self, sock)
 
 	-- read request line
 	local b, e, ln, rq = next_line(self, sock, "", pos)
-	method, url, httpver = match(ln, "^(%a+)%s+([^%s]+)%s+HTTP/([%d\.]+)$")
+	method, url, httpver = match(ln, "^(%a+)%s+([^%s]+)%s+HTTP/([%d%.]+)$")
 	if not method then return error("can't find request line") end
 	if find(url, "?", 1, true) then
 		path, args = match(url, "^([^?]+)%?(.+)$")
